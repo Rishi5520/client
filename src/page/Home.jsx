@@ -1,8 +1,15 @@
 import React from 'react'
+import { Button } from 'react-bootstrap'
 
-const Home = () => {
+const Home = () => {  
   return (
+<>
+
     <div>Home</div>
+
+    
+    </>
+   
   )
 }
 

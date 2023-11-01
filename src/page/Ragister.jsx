@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import { useNavigate} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
+import swal from 'sweetalert';
 const Ragister = () => {
     const navigate = useNavigate();
     const [user, setUser] = useState({
@@ -34,25 +35,26 @@ const Ragister = () => {
            });
           const data = await response.json();
 
-          if(response.status === 422|| !data){
-            window.alert("Invaild Ragistration");
+          if(response.status === 422 || !data){
+            swal("Invaild Ragistration");
             console.log("Invaild Ragistration");
           }else{
-            window.alert("User Ragistration Sucessfully");
+            swal("User Ragistration Sucessfully");
             console.log("User Ragistration Sucessfully");
-
-            navigate("/Login")
-
+          
+            navigate("/")
           }
+          
     }
-
-
+    
 
   return (
     <Container>
-      <h1 >Ragister- Form</h1>
+      <h1 >Ragister-Form</h1>
       <Form method='POST'>
+    
         <Form.Group className='mb-3'>
+        <Form.Label>Username</Form.Label>
         <input
           type="username"
           name="username"
@@ -62,6 +64,7 @@ const Ragister = () => {
         />
         </Form.Group>
         <Form.Group className='mb-3'>
+        <Form.Label>Email ID</Form.Label>
         <input
           type="email"
           name="email"
@@ -71,6 +74,7 @@ const Ragister = () => {
         />
         </Form.Group>
         <Form.Group className='mb-3'>
+        <Form.Label>Password</Form.Label>
         <input
           type="password"
           name="password"
